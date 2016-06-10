@@ -1,3 +1,8 @@
+**Changed:**
+
+- Required `<meta>` tags in HTML templates are now all first thing in `<head>`
+- Added `shrink-to-fit=no` to the `viewport` `<meta>` tag for Safari
+
 # 0.11.0 / 2016-06-08
 
 **Breaking Changes:**
