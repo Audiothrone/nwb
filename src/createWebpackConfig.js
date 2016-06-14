@@ -416,6 +416,11 @@ export const COMPAT_CONFIGS = {
       'react/lib/ReactContext': true
     }
   },
+  'json-schema': {
+    module: {
+      noParse: [/node_modules[/\\]json-schema[/\\]lib[/\\]validate\.js/]
+    }
+  },
   moment({locales}) {
     if (!Array.isArray(locales)) {
       console.error(red("nwb: webpack.compat.moment config must provide a 'locales' Array"))
@@ -424,7 +429,7 @@ export const COMPAT_CONFIGS = {
     return {
       plugins: [
         new webpack.ContextReplacementPlugin(
-          /moment[\\\/]locale$/,
+          /moment[/\\]locale$/,
           new RegExp(`^\\.\\/(${locales.join('|')})$`)
         )
       ]
@@ -432,7 +437,7 @@ export const COMPAT_CONFIGS = {
   },
   sinon: {
     module: {
-      noParse: /[/\\]sinon\.js/
+      noParse: [/[/\\]sinon\.js/]
     },
     resolve: {
       alias: {
